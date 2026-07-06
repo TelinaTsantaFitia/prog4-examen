@@ -31,7 +31,11 @@ class BookControllerTest {
 
   private BookResponseDto sampleDto() {
     return new BookResponseDto(
-        UUID.randomUUID(), "One Piece", LocalDate.of(1997, 7, 22), "MANGA", List.of("Eiichiro Oda"));
+        UUID.randomUUID(),
+        "One Piece",
+        LocalDate.of(1997, 7, 22),
+        "MANGA",
+        List.of("Eiichiro Oda"));
   }
 
   @Test

@@ -81,6 +81,7 @@ class BookCopyControllerTest {
     ResponseEntity<?> response = bookCopyController.getBookCopyById(id.toString());
 
     assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
-    assertThat(response.getBody()).isEqualTo("Erreur 404 : BookCopy not found with identifier: " + id);
+    assertThat(response.getBody())
+        .isEqualTo("Erreur 404 : BookCopy not found with identifier: " + id);
   }
 }

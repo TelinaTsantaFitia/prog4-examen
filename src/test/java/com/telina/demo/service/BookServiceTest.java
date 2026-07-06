@@ -42,8 +42,10 @@ class BookServiceTest {
 
   @Test
   void getAllBooks_shouldMapBooksToDtos_includingCategoryAndAuthors() {
-    Category category = Category.builder().id(UUID.randomUUID()).categoryEnum(CategoryEnum.MANGA).build();
-    Author author = Author.builder().id(UUID.randomUUID()).firstName("Eiichiro").lastName("Oda").build();
+    Category category =
+        Category.builder().id(UUID.randomUUID()).categoryEnum(CategoryEnum.MANGA).build();
+    Author author =
+        Author.builder().id(UUID.randomUUID()).firstName("Eiichiro").lastName("Oda").build();
     Book bookWithDetails =
         Book.builder()
             .id(UUID.randomUUID())
@@ -109,8 +111,10 @@ class BookServiceTest {
     // Same book sold twice, in two different sales, to exercise the de-duplication logic.
     BookCopy copy1Again = BookCopy.builder().id(UUID.randomUUID()).book(book1).build();
 
-    SaleBook saleBook1 = SaleBook.builder().id(UUID.randomUUID()).bookCopy(copy1).quantity(1).build();
-    SaleBook saleBook2 = SaleBook.builder().id(UUID.randomUUID()).bookCopy(copy2).quantity(1).build();
+    SaleBook saleBook1 =
+        SaleBook.builder().id(UUID.randomUUID()).bookCopy(copy1).quantity(1).build();
+    SaleBook saleBook2 =
+        SaleBook.builder().id(UUID.randomUUID()).bookCopy(copy2).quantity(1).build();
     SaleBook saleBook3 =
         SaleBook.builder().id(UUID.randomUUID()).bookCopy(copy1Again).quantity(1).build();
 
@@ -133,6 +137,8 @@ class BookServiceTest {
 
     List<BookResponseDto> result = bookService.getBooksSoldToday();
 
-    assertThat(result).extracting(BookResponseDto::title).containsExactlyInAnyOrder("Book1", "Book2");
+    assertThat(result)
+        .extracting(BookResponseDto::title)
+        .containsExactlyInAnyOrder("Book1", "Book2");
   }
 }
